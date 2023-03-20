@@ -104,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity
                     userdataMap.put("password", password);
                     userdataMap.put("name", name);
 
-                    RootRef.child("User").child(phone).updateChildren(userdataMap)
+                    RootRef.child("Users").child(phone).updateChildren(userdataMap)
                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task)
@@ -137,7 +137,7 @@ public class RegisterActivity extends AppCompatActivity
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
