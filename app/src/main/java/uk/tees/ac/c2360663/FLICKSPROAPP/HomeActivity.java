@@ -25,6 +25,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import Prevalent.Prevalent;
 import io.paperdb.Paper;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -79,8 +81,8 @@ public class HomeActivity extends AppCompatActivity
         View headerView = navigationView.getHeaderView(0);
         TextView userNameTextView = headerView.findViewById(R.id.user_profile_name);
         CircleImageView profileImageView = headerView.findViewById(R.id.user_profile_image);
-//
-//        userNameTextView.setText(Prevalent.currentOnlineUser.getName());
+
+        userNameTextView.setText(Prevalent.currentOnlineUsers.getName());
 //        Picasso.get().load(Prevalent.currentOnlineUser.getImage()).placeholder(R.drawable.profile).into(profileImageView);
 
 

@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import Model.Users;
+import Prevalent.Prevalent;
 
 public class LoginActivity extends AppCompatActivity
 {
@@ -136,6 +137,7 @@ public class LoginActivity extends AppCompatActivity
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                Prevalent.currentOnlineUsers = usersData;
                                 startActivity(intent);
                             }
                         }
