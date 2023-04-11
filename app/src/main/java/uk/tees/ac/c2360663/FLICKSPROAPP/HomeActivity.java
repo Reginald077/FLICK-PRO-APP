@@ -3,7 +3,7 @@ package uk.tees.ac.c2360663.FLICKSPROAPP;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.support.annotation.NonNull;
+
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -12,14 +12,18 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -118,7 +122,7 @@ public class HomeActivity extends AppCompatActivity
                     {
                         holder.txtProductName.setText(model.getPname());
                         holder.txtProductDescription.setText(model.getDescription());
-                        holder.txtProductPrice.setText("Price = " + model.getPrice() + "$");
+                        holder.txtProductPrice.setText("£" + model.getPrice() );
                         Picasso.get().load(model.getImage()).into(holder.imageView);
                     }
 
