@@ -1,5 +1,6 @@
 package uk.tees.ac.c2360663.FLICKSPROAPP;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -124,6 +125,16 @@ public class HomeActivity extends AppCompatActivity
                         holder.txtProductDescription.setText(model.getDescription());
                         holder.txtProductPrice.setText("£" + model.getPrice() );
                         Picasso.get().load(model.getImage()).into(holder.imageView);
+
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view)
+                            {
+                                Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                                intent.putExtra("pid", model.getPid());
+                                startActivity(intent);
+                            }
+                        });
                     }
 
                     @NonNull
