@@ -55,8 +55,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity
         FirebaseRecyclerAdapter<AdminOrders, AdminOrdersViewHolder> adapter =
                 new FirebaseRecyclerAdapter<AdminOrders, AdminOrdersViewHolder>(options) {
                     @Override
-                    protected void onBindViewHolder(@NonNull AdminOrdersViewHolder holder,final int position, @NonNull  final AdminOrders model)
-                    {
+                    protected void onBindViewHolder(@NonNull AdminOrdersViewHolder holder,final int position, @NonNull  final AdminOrders model) {
 
                         holder.userName.setText("Name: " + model.getName());
                         holder.userPhoneNumber.setText("Phone: " + model.getPhone());
@@ -66,8 +65,7 @@ public class AdminNewOrdersActivity extends AppCompatActivity
 
                         holder.ShowOrdersBtn.setOnClickListener(new View.OnClickListener() {
                             @Override
-                            public void onClick(View view)
-                            {
+                            public void onClick(View view) {
                                 String uID = getRef(holder.getAdapterPosition()).getKey();
 
                                 Intent intent = new Intent(AdminNewOrdersActivity.this, AdminUserProductsActivity.class);
@@ -76,38 +74,37 @@ public class AdminNewOrdersActivity extends AppCompatActivity
                             }
                         });
 
-//                        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view)
-//                            {
-//                                CharSequence options[] = new CharSequence[]
-//                                        {
-//                                                "Yes",
-//                                                "No"
-//                                        };
-//
-//                                AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewOrdersActivity.this);
-//                                builder.setTitle("Have you shipped this order products ?");
-//
-//                                builder.setItems(options, new DialogInterface().OnClickListener() {
-//                                    @Override
-//                                    public void onClick(DialogInterface dialogInterface, int i)
-//                                    {
-//                                        if (i == 0)
-//                                        {
-//                                            String uID = getRef(holder.getAdapterPosition()).getKey();
-//
-//                                            RemoverOrder(uID);
-//                                        }
-//                                        else
-//                                        {
-//                                            finish();
-//                                        }
-//                                    }
-//                                });
-//                                builder.show();
-//                            }
-//                        });
+                        holder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                CharSequence options[] = new CharSequence[]
+                                        {
+                                                "Yes",
+                                                "No"
+                                        };
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(AdminNewOrdersActivity.this);
+                                builder.setTitle("Have you shipped this order products ?");
+                                builder.setItems(options, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i)
+                                    {
+                                        if (i == 0)
+                                        {
+                                            String uID = getRef(holder.getAdapterPosition()).getKey();
+
+                                            RemoverOrder(uID);
+                                        }
+                                        else
+                                        {
+                                            finish();
+                                        }
+                                    }
+                                });
+                                builder.show();
+                            }
+                        });
+
                     }
 
                     @NonNull
